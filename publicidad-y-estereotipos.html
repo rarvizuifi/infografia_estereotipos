@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vender el género — Publicidad y estereotipos, 1950–2000</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Dancing+Script:wght@600&family=Anton&family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1E9D8;
+    --ink:#221D19;
+    --rose-50:#BE6B5C;
+    --teal-80:#0E7C74;
+    --magenta-80:#D6427C;
+    --dark-80:#1A1225;
+    --steel-00:#3E5C74;
+    --silver-00:#EAF0F2;
+    --line: rgba(34,29,25,0.18);
+    --serif: 'Playfair Display', serif;
+    --script: 'Dancing Script', cursive;
+    --display-80: 'Anton', sans-serif;
+    --grotesk: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  h1,h2,h3{margin:0;}
+  p{margin:0;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 72px;
+    background:var(--paper);
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: radial-gradient(var(--ink) 0.6px, transparent 0.6px);
+    background-size: 14px 14px;
+    opacity:0.05;
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;text-align:center;}
+  .eyebrow{
+    display:inline-block;
+    font-family:var(--body);
+    font-weight:600;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--rose-50);
+    border:1px solid var(--rose-50);
+    border-radius:999px;
+    padding:6px 16px;
+    margin-bottom:28px;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(38px,6vw,68px);
+    line-height:1.08;
+    max-width:820px;
+    margin:0 auto 20px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--rose-50);
+  }
+  .hero .tag{
+    font-family:var(--script);
+    font-size:clamp(22px,3vw,30px);
+    color:var(--rose-50);
+    margin-bottom:26px;
+  }
+  .hero p.lede{
+    max-width:600px;
+    margin:0 auto;
+    font-size:17px;
+    line-height:1.65;
+    color:rgba(34,29,25,0.78);
+  }
+
+  /* timeline ribbon */
+  .ribbon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0;
+    margin-top:56px;
+  }
+  .ribbon a{
+    text-decoration:none;
+    color:inherit;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    padding:0 34px;
+    position:relative;
+  }
+  .ribbon a .dot{
+    width:14px;height:14px;border-radius:50%;
+    background:var(--ink);
+    transition:transform .2s ease;
+  }
+  .ribbon a:nth-child(1) .dot{background:var(--rose-50);}
+  .ribbon a:nth-child(2) .dot{background:var(--magenta-80);}
+  .ribbon a:nth-child(3) .dot{background:var(--steel-00);}
+  .ribbon a:hover .dot{transform:scale(1.35);}
+  .ribbon a .yr{font-family:var(--grotesk);font-weight:700;font-size:15px;letter-spacing:0.04em;}
+  .ribbon .line{width:64px;height:1px;background:var(--line);margin-top:-24px;}
+
+  /* ---------- SHARED DECADE SCAFFOLD ---------- */
+  .decade{padding:88px 0;position:relative;overflow:hidden;}
+  .decade-head{margin-bottom:48px; text-align:left;}
+  .decade-head .eyebrow2{
+    font-family:var(--body);
+    font-weight:700;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-size:12px;
+    margin-bottom:14px;
+    display:block;
+  }
+  .decade-head h2{font-size:clamp(32px,5vw,48px); margin-bottom:10px;}
+  .decade-head .ctx{font-size:15px; opacity:0.75; max-width:520px;}
+
+  .cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    margin-bottom:44px;
+  }
+  @media(max-width:760px){ .cards{grid-template-columns:1fr;} }
+
+  .card h3.card-title{font-size:14px; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:18px;}
+  .card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .card li{font-size:15.5px; line-height:1.55; padding-left:20px; position:relative;}
+
+  .analysis{
+    border-radius:2px;
+    padding:30px 34px;
+  }
+  .analysis h3{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    margin-bottom:12px;
+  }
+  .analysis p{font-size:15.5px; line-height:1.7;}
+
+  /* ================= 1950 — vintage print / halftone ================= */
+  .decade--1950{background:var(--paper);}
+  .decade--1950::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: radial-gradient(var(--ink) 0.5px, transparent 0.5px);
+    background-size: 10px 10px;
+    opacity:0.045;
+    pointer-events:none;
+  }
+  .decade--1950 .decade-head .eyebrow2{color:var(--rose-50);}
+  .decade--1950 .decade-head h2{font-family:var(--serif); font-weight:700;}
+  .decade--1950 .card{
+    background:#FBF7EC;
+    border:1px solid var(--ink);
+    box-shadow:5px 5px 0 rgba(34,29,25,0.08);
+    padding:30px 28px;
+  }
+  .decade--1950 .card::after{
+    content:"";
+    display:block;
+    height:1px;
+    background:repeating-linear-gradient(90deg, var(--rose-50) 0 6px, transparent 6px 12px);
+    margin-top:20px;
+  }
+  .decade--1950 .card h3.card-title{font-family:var(--script); font-size:24px; text-transform:none; letter-spacing:0; color:var(--rose-50);}
+  .decade--1950 .card li::before{content:"✦"; position:absolute; left:0; top:1px; font-size:11px; color:var(--rose-50);}
+  .decade--1950 .analysis{background:transparent; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); padding-left:0; padding-right:0;}
+  .decade--1950 .analysis h3{color:var(--rose-50); font-family:var(--body);}
+
+  /* ================= 1980 — memphis / bold pop ================= */
+  .decade--1980{background:var(--dark-80); color:#F4EEF7;}
+  .decade--1980 .shape{position:absolute; pointer-events:none; opacity:0.9;}
+  .decade--1980 .shape.circle{width:120px;height:120px;border-radius:50%;border:8px solid var(--teal-80); top:40px; right:6%;}
+  .decade--1980 .shape.tri{width:0;height:0;border-left:60px solid transparent;border-right:60px solid transparent;border-bottom:100px solid var(--magenta-80); opacity:0.85; bottom:20px; left:2%; transform:rotate(12deg);}
+  .decade--1980 .shape.squiggle{right:2%; bottom:60px; width:140px;}
+  .decade--1980 .decade-head .eyebrow2{color:var(--teal-80);}
+  .decade--1980 .decade-head h2{font-family:var(--display-80); text-transform:uppercase; letter-spacing:0.02em; color:#fff;}
+  .decade--1980 .decade-head .ctx{color:rgba(244,238,247,0.72);}
+  .decade--1980 .card{
+    background:#241A30;
+    border:3px solid var(--magenta-80);
+    padding:30px 28px;
+    position:relative;
+  }
+  .decade--1980 .card:nth-child(2){border-color:var(--teal-80);}
+  .decade--1980 .card h3.card-title{font-family:var(--display-80); letter-spacing:0.06em; color:var(--magenta-80);}
+  .decade--1980 .card:nth-child(2) h3.card-title{color:var(--teal-80);}
+  .decade--1980 .card li{color:#F4EEF7;}
+  .decade--1980 .card li::before{content:"▲"; position:absolute; left:0; top:2px; font-size:9px; color:var(--magenta-80);}
+  .decade--1980 .card:nth-child(2) li::before{color:var(--teal-80);}
+  .decade--1980 .analysis{background:rgba(255,255,255,0.05); border-left:4px solid var(--teal-80);}
+  .decade--1980 .analysis h3{color:var(--teal-80); font-family:var(--display-80); letter-spacing:0.08em;}
+  .decade--1980 .analysis p{color:rgba(244,238,247,0.88);}
+
+  /* ================= 2000 — glossy Y2K minimal ================= */
+  .decade--2000{
+    background:linear-gradient(160deg, var(--silver-00) 0%, #DCE7EC 55%, #CFE0E8 100%);
+    color:var(--steel-00);
+  }
+  .decade--2000 .decade-head .eyebrow2{color:var(--steel-00);}
+  .decade--2000 .decade-head h2{font-family:var(--grotesk); font-weight:700; color:#1E3345;}
+  .decade--2000 .decade-head .ctx{color:rgba(30,51,69,0.7);}
+  .decade--2000 .card{
+    background:rgba(255,255,255,0.55);
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.8);
+    border-radius:18px;
+    padding:30px 28px;
+    box-shadow:0 12px 30px rgba(62,92,116,0.12);
+  }
+  .decade--2000 .card h3.card-title{font-family:var(--grotesk); color:#1E3345; letter-spacing:0.08em;}
+  .decade--2000 .card li{color:#26404F;}
+  .decade--2000 .card li::before{content:"●"; position:absolute; left:0; top:2px; font-size:6px; color:var(--steel-00);}
+  .decade--2000 .analysis{background:rgba(255,255,255,0.6); border-radius:18px; backdrop-filter:blur(6px);}
+  .decade--2000 .analysis h3{color:var(--steel-00);}
+  .decade--2000 .analysis p{color:#274252;}
+
+  /* ---------- REFLECTION / CLOSE ---------- */
+  .reflection{
+    background:var(--ink);
+    color:var(--paper);
+    padding:90px 0 70px;
+    text-align:center;
+  }
+  .reflection .wrap{max-width:700px;}
+  .reflection .eyebrow{border-color:var(--paper); color:var(--paper); background:transparent;}
+  .reflection h2{
+    font-family:var(--serif);
+    font-size:clamp(28px,4.5vw,42px);
+    margin:22px 0 22px;
+    line-height:1.2;
+  }
+  .reflection p{font-size:16px; line-height:1.7; color:rgba(241,233,216,0.82);}
+  .swatches{display:flex;justify-content:center;gap:10px;margin-top:34px;}
+  .swatches span{width:10px;height:10px;border-radius:50%;}
+  .swatches span:nth-child(1){background:var(--rose-50);}
+  .swatches span:nth-child(2){background:var(--magenta-80);}
+  .swatches span:nth-child(3){background:var(--teal-80);}
+  .swatches span:nth-child(4){background:var(--steel-00);}
+
+  footer.credit{
+    text-align:center;
+    font-size:12px;
+    color:rgba(34,29,25,0.5);
+    padding:26px 0 40px;
+    background:var(--paper);
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Un recorrido con cariño y ojo crítico</span>
+      <h1>Vender el <em>género</em>:<br>publicidad y estereotipos</h1>
+      <div class="tag">1950 · 1980 · 2000</div>
+      <p class="lede">Durante medio siglo, los anuncios no solo vendieron detergentes, perfumes o autos: también vendieron ideas de lo que "debía" ser una mujer y un hombre. Aquí vemos cómo cambiaron esos estereotipos —y por qué aparecieron— década a década.</p>
+
+      <div class="ribbon">
+        <a href="#d1950"><span class="yr">1950</span><span class="dot"></span></a>
+        <div class="line"></div>
+        <a href="#d1980"><span class="yr">1980</span><span class="dot"></span></a>
+        <div class="line"></div>
+        <a href="#d2000"><span class="yr">2000</span><span class="dot"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 1950 ============ -->
+  <section class="decade decade--1950" id="d1950">
+    <div class="wrap">
+      <div class="decade-head">
+        <span class="eyebrow2">Década 1</span>
+        <h2>1950 — El hogar como escenario</h2>
+        <p class="ctx">La posguerra y el auge de la vida suburbana.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3 class="card-title">Ella en los anuncios</h3>
+          <ul>
+            <li>El ama de casa feliz: siempre sonriente y bien peinada mientras friega, cocina o plancha.</li>
+            <li>Su mayor logro era complacer al esposo con la cena perfecta o una casa impecable.</li>
+            <li>Protagonista casi exclusiva de anuncios de detergentes, electrodomésticos y productos de limpieza.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Él en los anuncios</h3>
+          <ul>
+            <li>El proveedor serio y racional: traje impecable, opinión experta sobre casi todo.</li>
+            <li>Protagonista de anuncios de autos, cigarrillos, seguros y licores.</li>
+            <li>Su valor se medía por el éxito profesional y la capacidad de mantener a su familia.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="analysis">
+        <h3>¿Por qué pasaba esto?</h3>
+        <p>Al terminar la Segunda Guerra Mundial, muchas mujeres que habían trabajado en fábricas fueron animadas —y en muchos casos presionadas— a dejar esos puestos para los soldados que regresaban. La floreciente economía de consumo y el nuevo estilo de vida suburbano necesitaban compradoras dedicadas de tiempo completo al hogar, así que la publicidad convirtió ese papel en sinónimo de éxito, estabilidad y felicidad familiar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 1980 ============ -->
+  <section class="decade decade--1980" id="d1980">
+    <div class="shape circle"></div>
+    <div class="shape tri"></div>
+    <svg class="shape squiggle" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 20 Q 20 2, 38 20 T 74 20 T 110 20 T 138 20" stroke="#D6427C" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <div class="wrap">
+      <div class="decade-head">
+        <span class="eyebrow2">Década 2</span>
+        <h2>1980 — La doble jornada</h2>
+        <p class="ctx">Más mujeres trabajando fuera de casa, pero el ideal doméstico no descansó.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3 class="card-title">Ella en los anuncios</h3>
+          <ul>
+            <li>La "supermujer": ejecutiva de hombreras y portafolio de día, esposa y madre perfecta de noche.</li>
+            <li>Cuerpo tonificado y delgado, impulsado por el boom del aeróbic y el fitness.</li>
+            <li>Vendía perfumes, moda y belleza con la promesa de "poder tenerlo todo".</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Él en los anuncios</h3>
+          <ul>
+            <li>El yuppie triunfador: reloj de lujo, corbata ancha, teléfono en mano y ambición sin límites.</li>
+            <li>También el héroe musculoso del cine y los anuncios de cerveza o autos deportivos.</li>
+            <li>El éxito se medía en dinero, estatus y una masculinidad marcadamente física.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="analysis">
+        <h3>¿Por qué pasaba esto?</h3>
+        <p>La segunda ola del feminismo había llevado a millones de mujeres al mercado laboral, pero la publicidad no abandonó el ideal doméstico: simplemente le sumó una carrera encima. Nació así la fantasía —agotadora— de "tenerlo todo" sin renunciar a nada. El mismo individualismo y culto al éxito material de la época empujaban a los hombres hacia una imagen de triunfo constante y musculatura visible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2000 ============ -->
+  <section class="decade decade--2000" id="d2000">
+    <div class="wrap">
+      <div class="decade-head">
+        <span class="eyebrow2">Década 3</span>
+        <h2>2000 — Empoderamiento en venta</h2>
+        <p class="ctx">El discurso feminista se convierte en estrategia de mercadeo.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3 class="card-title">Ella en los anuncios</h3>
+          <ul>
+            <li>El "girl power" comercial: mensajes de independencia y seguridad, vendidos junto a estándares de belleza cada vez más estrictos.</li>
+            <li>Hipersexualización en campañas juveniles y de moda, con cuerpos extremadamente delgados como norma.</li>
+            <li>El "empoderamiento" se convirtió en un argumento de venta más que en un cambio real de fondo.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Él en los anuncios</h3>
+          <ul>
+            <li>Aparece el "metrosexual": hombres que cuidan su piel, su ropa y su imagen sin dejar de proyectarse "masculinos".</li>
+            <li>Convive con el ideal hipermasculino de siempre: deporte, cerveza, autos y fuerza física.</li>
+            <li>Empieza a notarse —aunque poco se hablaba de ello— la presión estética también sobre los hombres.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="analysis">
+        <h3>¿Por qué pasaba esto?</h3>
+        <p>Con la globalización de los medios, MTV, las revistas juveniles y los primeros pasos de internet, la publicidad aprendió a hablar el lenguaje del feminismo y la diversidad sin transformar necesariamente sus prácticas. El resultado fue una época contradictoria: mensajes de libertad individual conviviendo con presiones estéticas más intensas que nunca, ahora dirigidas también a los hombres.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REFLEXIÓN FINAL ============ -->
+  <section class="reflection">
+    <div class="wrap">
+      <span class="eyebrow">Para cerrar</span>
+      <h2>Lo que no cambió (y lo que sí)</h2>
+      <p>En setenta años, los trajes cambiaron, los eslóganes se volvieron más sutiles y el lenguaje se actualizó. Pero en cada década, la publicidad siguió sugiriendo —con palabras distintas— cómo "debía" verse y comportarse cada género. Entender esto no es solo un ejercicio de nostalgia: es una herramienta para mirar con ojo crítico los anuncios que vemos hoy, y notar qué ideales seguimos comprando sin darnos cuenta.</p>
+      <div class="swatches"><span></span><span></span><span></span><span></span></div>
+    </div>
+  </section>
+
+  <footer class="credit">Infografía educativa · publicidad y estereotipos de género, 1950–2000</footer>
+
+</body>
+</html>
